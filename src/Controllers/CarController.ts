@@ -55,6 +55,34 @@ class CarController {
       this._next(error);
     }
   }
+
+  public async updateOneCar() {
+    const carId: string = this._req.params.id;
+    const car: ICar = {
+      id: this._req.params.id,
+      model: this._req.body.model,
+      year: this._req.body.year,
+      color: this._req.body.color,
+      status: this._req.body.status === undefined ? false : this._req.body.status,
+      buyValue: this._req.body.buyValue,
+      doorsQty: this._req.body.doorsQty,
+      seatsQty: this._req.body.seatsQty,
+    };
+
+    try {
+      if (!isValidObjectId(carId)) {
+        return this._res.status(422).json({ message: 'Invalid mongo id' });
+      }
+      const oneCar = await this._service.getOneCar(carId);
+      if (oneCar === null) {
+        return this._res.status(404).json({ message: 'Car not found' });
+      }
+      const updateCar = await this._service.updateOneCar({ id: carId, ...car });
+      return this._res.status(200).json(updateCar);
+    } catch (error) {
+      this._next(error);
+    }
+  }
 }
 
 export default CarController;
