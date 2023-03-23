@@ -59,7 +59,6 @@ class CarController {
   public async updateOneCar() {
     const carId: string = this._req.params.id;
     const car: ICar = {
-      id: this._req.params.id,
       model: this._req.body.model,
       year: this._req.body.year,
       color: this._req.body.color,
@@ -77,7 +76,7 @@ class CarController {
       if (oneCar === null) {
         return this._res.status(404).json({ message: 'Car not found' });
       }
-      const updateCar = await this._service.updateOneCar({ id: carId, ...car });
+      const updateCar = await this._service.updateOneCar(carId, car);
       return this._res.status(200).json(updateCar);
     } catch (error) {
       this._next(error);
