@@ -1,11 +1,11 @@
 import { Router } from 'express';
 import CarController from '../Controllers/CarController';
 
-const carRouter = Router();
+const carsRouter = Router();
 
-carRouter.post(
-  '/car',
+carsRouter.post(
+  '/cars',
   (req, res, next) => new CarController(req, res, next).registerCar(),
 );
 
-export default carRouter;
+export default carsRouter;

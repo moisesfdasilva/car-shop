@@ -1,14 +1,14 @@
 import ICar from '../Interfaces/ICar';
 
 class Car {
-  public id: string | undefined;
-  public model: string;
-  public year: number;
-  public color: string;
-  public status: boolean;
-  public buyValue: number;
-  public doorsQty: number;
-  public seatsQty: number;
+  protected id: string | undefined;
+  protected model: string;
+  protected year: number;
+  protected color: string;
+  protected status: boolean | undefined;
+  protected buyValue: number;
+  private doorsQty: number;
+  private seatsQty: number;
 
   constructor(car: ICar) {
     this.id = car.id;
@@ -19,6 +19,14 @@ class Car {
     this.buyValue = car.buyValue;
     this.doorsQty = car.doorsQty;
     this.seatsQty = car.seatsQty;
+  }
+
+  public getDoorsQty() {
+    return this.doorsQty;
+  }
+
+  public getSeatsQty() {
+    return this.seatsQty;
   }
 }
 
