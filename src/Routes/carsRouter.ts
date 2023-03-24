@@ -2,6 +2,7 @@ import { Router } from 'express';
 import CarController from '../Controllers/CarController';
 
 const carsRouter = Router();
+const carsId = '/cars/:id';
 
 carsRouter.post(
   '/cars',
@@ -12,15 +13,15 @@ carsRouter.get(
   (req, res, next) => new CarController(req, res, next).getAllCars(),
 );
 carsRouter.get(
-  '/cars/:id',
+  carsId,
   (req, res, next) => new CarController(req, res, next).getOneCar(),
 );
 carsRouter.put(
-  '/cars/:id',
+  carsId,
   (req, res, next) => new CarController(req, res, next).updateOneCar(),
 );
 carsRouter.delete(
-  '/cars/:id',
+  carsId,
   (req, res, next) => new CarController(req, res, next).deleteOneCar(),
 );
 

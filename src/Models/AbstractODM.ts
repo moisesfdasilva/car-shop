@@ -20,7 +20,7 @@ abstract class AbstractODM<T> {
   }
 
   public async getOneVehicle(vehicleId: string): Promise<T | null> {
-    return this.model.findById(vehicleId).exec();
+    return this.model.findById(vehicleId);
   }
 
   public async updateOneVehicle(vehicleId: string, vehicle: T): Promise<T | null> {
