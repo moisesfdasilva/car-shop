@@ -8,12 +8,16 @@ class CarController {
   private _res: Response;
   private _next: NextFunction;
   private _service: CarService;
+  public invalidId: string;
+  public notFound: string;
 
   constructor(req: Request, res: Response, next: NextFunction) {
     this._req = req;
     this._res = res;
     this._next = next;
     this._service = new CarService();
+    this.invalidId = 'Invalid mongo id';
+    this.notFound = 'Car not found';
   }
 
   public async registerCar() {
@@ -44,11 +48,11 @@ class CarController {
     try {
       const carId: string = this._req.params.id;
       if (!isValidObjectId(carId)) {
-        return this._res.status(422).json({ message: 'Invalid mongo id' });
+        return this._res.status(422).json({ message: this.invalidId });
       }
       const oneCar = await this._service.getOneCar(carId);
       if (oneCar === null) {
-        return this._res.status(404).json({ message: 'Car not found' });
+        return this._res.status(404).json({ message: this.notFound });
       }
       return this._res.status(200).json(oneCar);
     } catch (error) {
@@ -70,14 +74,32 @@ class CarController {
 
     try {
       if (!isValidObjectId(carId)) {
-        return this._res.status(422).json({ message: 'Invalid mongo id' });
+        return this._res.status(422).json({ message: this.invalidId });
       }
       const oneCar = await this._service.getOneCar(carId);
       if (oneCar === null) {
-        return this._res.status(404).json({ message: 'Car not found' });
+        return this._res.status(404).json({ message: this.notFound });
       }
       const updateCar = await this._service.updateOneCar(carId, car);
       return this._res.status(200).json(updateCar);
+    } catch (error) {
+      this._next(error);
+    }
+  }
+
+  public async deleteOneCar() {
+    const carId: string = this._req.params.id;
+
+    try {
+      if (!isValidObjectId(carId)) {
+        return this._res.status(422).json({ message: this.invalidId });
+      }
+      const oneCar = await this._service.getOneCar(carId);
+      if (oneCar === null) {
+        return this._res.status(404).json({ message: this.notFound });
+      }
+      await this._service.deleteOneCar(carId);
+      return this._res.status(204).json();
     } catch (error) {
       this._next(error);
     }

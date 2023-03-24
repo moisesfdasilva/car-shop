@@ -27,6 +27,10 @@ abstract class AbstractODM<T> {
     await this.model.updateOne({ id: vehicleId }, { ...vehicle } as UpdateQuery<T>);
     return { id: vehicleId, ...vehicle };
   }
+
+  public async deleteOneVehicle(vehicleId: string) {
+    await this.model.deleteOne({ id: vehicleId });
+  }
 }
 
 export default AbstractODM;
