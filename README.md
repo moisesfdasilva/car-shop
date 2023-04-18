@@ -9,6 +9,7 @@ TypeScript;
 Express;
 Mongoose;
 Chai;
+Sinon.js;
 MongoDB; e
 Docker.
 
