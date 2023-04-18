@@ -3,10 +3,6 @@
 ## Sobre o Projeto
 Aplicação desenvolvida para disponibilizar uma API com funcionalidades de criar, ler, modificar e deletar informações relativas a venda de carros e motos.
 
-![trybe-futebol-clube-1](./app/trybe-futebol-clube-1.png)
-![trybe-futebol-clube-2](./app/trybe-futebol-clube-2.png)
-![trybe-futebol-clube-3](./app/trybe-futebol-clube-3.png)
-
 ## Tecnologias e Ferramentas empregadas
 Node.js;
 TypeScript;
@@ -34,20 +30,16 @@ C. Serão iniciados os dois containers:
   2. container docker backend, com o backend em Node.js.
 
 D. Acessar a API, nas seguintes rotas:
-  i. Post, em http://localhost:3001/cars,
-  <p>com body { model: string, year: number, color: string, status: boolean, buyValue: number, doorsQty: number, seatsQty: number }</p>
-  
-  2. Get, em http://localhost:3001/cars, com body...
-  3. Get, em http://localhost:3001/cars/:id, com body...
-  4. Put, em http://localhost:3001/cars/:id, com body...
-  5. Delete, em http://localhost:3001/cars/:id, com body..
-  
-  6. Post, em http://localhost:3001/motorcycles, com body...
-  7. Get, em http://localhost:3001/motorcycles, com body...
-  8. Get, em http://localhost:3001/motorcycles/:id, com body...
-  9. Put, em http://localhost:3001/motorcycles/:id, com body...
-  10. Delete, em http://localhost:3001/motorcycles/:id, com body..
-
+  1. Post, em http://localhost:3001/cars, contendo o body { "model": string, "year": number, "color": string, "status": boolean, "buyValue": number, "doorsQty": number, "seatsQty": number }, cadastra um novo carro.
+  2. Get, em http://localhost:3001/cars, exibe a lista dos carros cadastrados.
+  3. Get, em http://localhost:3001/cars/:id, exibe os dados do carro conforme o id especificado na rota.
+  4. Put, em http://localhost:3001/cars/:id, contendo o body { "model": string, "year": number, "color": string, "status": boolean, "buyValue": number, "doorsQty": number, "seatsQty": number }, atualiza os dados de um carro cadastrado.
+  5. Delete, em http://localhost:3001/cars/:id, deleta o cadastro do carro conforme o id especificado na rota.  
+  6. Post, em http://localhost:3001/motorcycles, contendo o body { "model": string, "year": number, "color": string, "status": boolean, "buyValue": number, "category": string, "engineCapacity": number }, cadastra uma nova moto.
+  7. Get, em http://localhost:3001/motorcycles, exibe a lista das motos cadastradas.
+  8. Get, em http://localhost:3001/motorcycles/:id, exibe os dados da moto conforme o id especificado na rota.
+  9. Put, em http://localhost:3001/motorcycles/:id, contendo o body { "model": string, "year": number, "color": string, "status": boolean, "buyValue": number, "category": string, "engineCapacity": number }, atualiza os dados de uma moto cadastrada.
+  10. Delete, em http://localhost:3001/motorcycles/:id, deleta o cadastro de uma moto conforme o id especificado na rota.
 
 ## Contribuintes
 |Nome|GitHub|
