@@ -18,10 +18,10 @@ Aplicação em funcionamento.
 
 ## Acesso à Aplicação
 ### Antes da instalação
-A. Fazer o Clone do repositório;
+Fazer o Clone do repositório.
 
 ### Instalação e Execução
-Entrar no diretório raiz da aplicação:
+A. Entrar no diretório raiz da aplicação:
 
   $ cd car-shop
 
