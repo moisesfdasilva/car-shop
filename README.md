@@ -17,17 +17,17 @@ Docker.
 Aplicação em funcionamento.
 
 ## Acesso à Aplicação
-### Instalação e Execução
-Fazer o Clone do repositório.
+### Antes da instalação
+A. Fazer o Clone do repositório;
 
 ### Instalação e Execução
-A. Entrar no diretório app:
+Entrar no diretório raiz da aplicação:
 
-  $ cd app
+  $ cd car-shop
 
-B. Iniciada pelo Docker através do comando:
+B. Instalar a aplicação pelo Docker Compose, através do comando:
   
-  $ docker compose up
+  $ docker-compose up -d
 
 C. Serão iniciados os dois containers:
   1. container docker db, com o banco de dados em MongoDB; e 
